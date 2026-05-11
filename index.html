@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Agustín Balegno | Hospitality Sessions</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -26,7 +29,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 padding:60px 20px;
-background:linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.95));
+background:linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.95));
 }
 
 .hero-content{
@@ -39,22 +42,39 @@ align-items:center;
 
 .hero img{
 width:100%;
-max-width:500px;
-border-radius:20px;
+max-width:520px;
+border-radius:24px;
 object-fit:cover;
+box-shadow:0 20px 50px rgba(0,0,0,.5);
 }
 
 h1{
 font-family:'Playfair Display',serif;
 font-size:4rem;
-margin-bottom:20px;
-font-weight:700;
+line-height:1.1;
+margin-bottom:25px;
 }
 
 .subtitle{
 font-size:1.2rem;
 opacity:.8;
-margin-bottom:30px;
+margin-bottom:35px;
+max-width:600px;
+}
+
+.button{
+display:inline-block;
+padding:18px 40px;
+background:#fff;
+color:#000;
+text-decoration:none;
+border-radius:999px;
+font-weight:600;
+transition:.3s;
+}
+
+.button:hover{
+transform:translateY(-2px);
 }
 
 .section{
@@ -63,11 +83,18 @@ max-width:1200px;
 margin:auto;
 }
 
+.section-title{
+font-family:'Playfair Display',serif;
+font-size:3rem;
+margin-bottom:20px;
+text-align:center;
+}
+
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:30px;
-margin-top:40px;
+margin-top:50px;
 }
 
 .card{
@@ -85,17 +112,21 @@ border-color:rgba(255,255,255,.2);
 
 .card h2{
 font-family:'Playfair Display',serif;
-margin-bottom:20px;
 font-size:2rem;
+margin-bottom:20px;
+}
+
+.card p{
+opacity:.85;
+margin-bottom:20px;
 }
 
 .card ul{
-margin-top:20px;
 padding-left:20px;
 }
 
 .card li{
-margin-bottom:10px;
+margin-bottom:12px;
 opacity:.9;
 }
 
@@ -107,40 +138,58 @@ margin-top:25px;
 
 .exp{
 background:#111;
-padding:80px 20px;
+padding:100px 20px;
+}
+
+.exp-container{
+max-width:1000px;
+margin:auto;
 }
 
 .exp h2{
 font-family:'Playfair Display',serif;
 font-size:3rem;
-margin-bottom:30px;
+margin-bottom:35px;
 text-align:center;
 }
 
-.exp-content{
-max-width:1000px;
-margin:auto;
+.exp p{
+margin-bottom:20px;
+opacity:.88;
 font-size:1.05rem;
+}
+
+.social{
+padding:40px 20px;
+border-top:1px solid rgba(255,255,255,.08);
+text-align:center;
+}
+
+.social p{
+opacity:.6;
+margin-bottom:15px;
+}
+
+.social-links{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.social-links a{
+color:#fff;
+text-decoration:none;
 opacity:.9;
 }
 
 .cta{
-text-align:center;
 padding:100px 20px;
-}
-
-.button{
-display:inline-block;
-padding:18px 40px;
-background:#fff;
-color:#000;
-text-decoration:none;
-border-radius:999px;
-font-weight:600;
-margin-top:30px;
+text-align:center;
 }
 
 @media(max-width:900px){
+
 .hero-content{
 grid-template-columns:1fr;
 text-align:center;
@@ -149,54 +198,92 @@ text-align:center;
 h1{
 font-size:3rem;
 }
-} </style>
 
+.hero img{
+margin:auto;
+}
+
+.subtitle{
+margin:auto auto 35px auto;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
 <section class="hero">
+
 <div class="hero-content">
+
 <div>
-<h1>Hospitalidad, servicio y operación real.</h1>
+
+<h1>
+Hospitalidad, servicio y operación real.
+</h1>
+
 <p class="subtitle">
-Charlas, workshops y activaciones diseñadas para equipos gastronómicos, bares y operaciones de alto volumen.
+Charlas, workshops y activaciones diseñadas para equipos gastronómicos, bares, restaurantes y operaciones de alto volumen.
 </p>
-<a href="#propuestas" class="button">Ver propuestas</a>
+
+<a href="#propuestas" class="button">
+Ver propuestas
+</a>
+
 </div>
+
 <div>
 <img src="Hero.png" alt="Agustín Balegno">
 </div>
+
 </div>
+
 </section>
 
 <section class="section" id="propuestas">
-<h1 style="font-size:3rem; text-align:center; margin-bottom:20px;">Selecciona según tu necesidad</h1>
+
+<h2 class="section-title">
+Selecciona según tu necesidad
+</h2>
 
 <div class="cards">
 
 <div class="card">
-<h2>Hospitalidad + Guest Bartending</h2>
+
+<h2>
+Hospitalidad + Guest Bartending
+</h2>
+
 <p>
-Una experiencia diseñada para bares y restaurantes que buscan potenciar el servicio, la comunicación y la experiencia del cliente.
+Una experiencia diseñada para bares y restaurantes que buscan potenciar servicio, comunicación y experiencia del cliente.
 </p>
 
 <ul>
-<li>Charla de hospitalidad, servicio y comunicación.</li>
+<li>Charla sobre hospitalidad, servicio y comunicación.</li>
 <li>Diseño de menú de 3 cócteles.</li>
-<li>Adaptación según concepto del lugar.</li>
+<li>Adaptación según concepto del venue.</li>
 <li>Ejecución real en barra.</li>
 <li>Interacción con clientes durante el servicio.</li>
-<li>Bonus: relevamiento observador de operación sin costo extra.</li>
-<li>Posibilidad de invitar personas externas a la charla previa.</li>
+<li>Bonus: relevamiento observador de operación de barra.</li>
+<li>Posibilidad de sumar asistentes externos a la charla previa.</li>
 </ul>
 
-<div class="price">$5.000 MXN</div>
+<div class="price">
+$5.000 MXN
+</div>
+
 </div>
 
 <div class="card">
-<h2>Antros, Discotecas & Barras de Alto Volumen</h2>
+
+<h2>
+Antros, Discotecas & Barras de Alto Volumen
+</h2>
+
 <p>
-Capacitación rápida y funcional para operaciones de alto volumen orientadas a velocidad, recepción y experiencia nocturna.
+Capacitación rápida y funcional orientada a velocidad, experiencia nocturna y operaciones de alto volumen.
 </p>
 
 <ul>
@@ -204,44 +291,113 @@ Capacitación rápida y funcional para operaciones de alto volumen orientadas a 
 <li>Capacitación sobre flujo operativo y comunicación rápida.</li>
 <li>Diseño de 2 cócteles de recepción.</li>
 <li>Propuesta adaptable al estilo del venue.</li>
-<li>Relevamiento de la operación de barra en modo observador.</li>
+<li>Relevamiento observador de la operación de barra.</li>
 <li>Feedback operativo posterior.</li>
-<li>Posibilidad de sumar asistentes externos a la capacitación.</li>
+<li>Posibilidad de sumar asistentes externos.</li>
 </ul>
 
-<div class="price">$6.000 MXN</div>
+<div class="price">
+$6.000 MXN
 </div>
 
 </div>
+
+<div class="card">
+
+<h2>
+ABC de los Cócteles
+</h2>
+
+<p>
+Programa pensado para poner a punto tu barra y fijar un set de skills claros para el equipo.
+</p>
+
+<ul>
+<li>3 horas de formación intensiva.</li>
+<li>Técnicas fundamentales de barra.</li>
+<li>Organización y lógica operativa.</li>
+<li>Herramientas de trabajo incluidas.</li>
+<li>No incluye bebidas ni insumos.</li>
+<li>Mínimo 5 personas.</li>
+<li>Bonus: charla sobre hospitalidad, servicio y comunicación.</li>
+</ul>
+
+<div class="price">
+$1.500 MXN p/persona
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <section class="exp">
-<h2>Experiencia</h2>
-<div class="exp-content">
+
+<div class="exp-container">
+
+<h2>
+Experiencia
+</h2>
+
 <p>
 Agustín Balegno cuenta con más de 17 años de experiencia en la industria gastronómica y de coctelería.
 </p>
-<br>
+
 <p>
-Head Bartender de Brindisi Bar de Cócteles durante 8 años. Fundador de Zizo Bar de Cócteles. Director y formador en ABB Bartenders Academy formando cientos de bartenders cada año desde 2010.
+Head Bartender de Brindisi Bar de Cócteles durante 8 años. Fundador de Zizo Bar de Cócteles y director de ABB Bartenders Academy formando cientos de bartenders cada año desde 2010.
 </p>
-<br>
+
 <p>
-Speaker en Barra México 2021. Parte de Campari Academy Argentina brindando conferencias y seminarios. Desarrollo de equipos y consultoría internacional incluyendo Hotel W Costa Rica (2024).
+Speaker en Barra México 2021 y parte de Campari Academy Argentina brindando conferencias y seminarios internacionales.
 </p>
-<br>
+
 <p>
-Consultor y cocktail designer para diferentes proyectos gastronómicos en Latinoamérica incluyendo Holbox San Francisco, Tregua Restaurant, Mazera y Óleo.
+Consultor y cocktail designer para diferentes proyectos gastronómicos en Latinoamérica incluyendo Hotel W Costa Rica, Holbox San Francisco, Tregua Restaurant, Mazera y Óleo.
 </p>
+
 </div>
+
+</section>
+
+<section class="social">
+
+<p>
+Redes & contacto
+</p>
+
+<div class="social-links">
+
+<a href="https://www.instagram.com/agustinbalegnobartender">
+@agustinbalegnobartender
+</a>
+
+<a href="https://www.instagram.com/abb_cocktail">
+@abb_cocktail
+</a>
+
+<a href="https://www.agustinbalegnobartender.com">
+www.agustinbalegnobartender.com
+</a>
+
+</div>
+
 </section>
 
 <section class="cta">
-<h1 style="font-size:3rem;">¿Quieres llevar esto a tu equipo?</h1>
-<p class="subtitle">
+
+<h2 class="section-title">
+¿Quieres llevar esto a tu equipo?
+</h2>
+
+<p class="subtitle" style="margin:auto;">
 Propuestas adaptables según operación, volumen y estilo del venue.
 </p>
-<a href="https://wa.me/0000000000" class="button">Contactar por WhatsApp</a>
+
+<a href="https://wa.me/0000000000" class="button">
+Contactar por WhatsApp
+</a>
+
 </section>
 
 </body>
