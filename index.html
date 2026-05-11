@@ -1,404 +1,665 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Agustín Balegno | Hospitality Sessions</title>
+  <title>Agustín Balegno | Propuestas Flash</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    :root{
+      --bg:#070707;
+      --ink:#f5f2ec;
+      --muted:#b8b2a8;
+      --line:rgba(245,242,236,.14);
+      --card:#101010;
+      --soft:#171717;
+      --gold:#c8a96a;
+      --gold-soft:rgba(200,169,106,.14);
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:'Inter',sans-serif;
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1160px,92vw);margin:0 auto}
 
-body{
-background:#0b0b0b;
-color:#fff;
-font-family:'Inter',sans-serif;
-line-height:1.6;
-}
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:20;
+      background:rgba(7,7,7,.76);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
 
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:60px 20px;
-background:linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.95));
-}
+    .nav{
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
 
-.hero-content{
-max-width:1200px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
-}
+    .brand{
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      font-weight:700;
+    }
 
-.hero img{
-width:100%;
-max-width:520px;
-border-radius:24px;
-object-fit:cover;
-box-shadow:0 20px 50px rgba(0,0,0,.5);
-}
+    .navlinks{
+      display:flex;
+      gap:24px;
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      color:var(--muted);
+    }
 
-h1{
-font-family:'Playfair Display',serif;
-font-size:4rem;
-line-height:1.1;
-margin-bottom:25px;
-}
+    .navlinks a:hover{color:var(--ink)}
 
-.subtitle{
-font-size:1.2rem;
-opacity:.8;
-margin-bottom:35px;
-max-width:600px;
-}
+    .hero{
+      min-height:100vh;
+      padding:116px 0 70px;
+      display:flex;
+      align-items:center;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(200,169,106,.16), transparent 34%),
+        radial-gradient(circle at 5% 80%, rgba(245,242,236,.05), transparent 28%),
+        linear-gradient(135deg, #070707 0%, #0d0d0d 48%, #050505 100%);
+    }
 
-.button{
-display:inline-block;
-padding:18px 40px;
-background:#fff;
-color:#000;
-text-decoration:none;
-border-radius:999px;
-font-weight:600;
-transition:.3s;
-}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:64px;
+      align-items:center;
+    }
 
-.button:hover{
-transform:translateY(-2px);
-}
+    .eyebrow{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:.78rem;
+      font-weight:800;
+      margin-bottom:24px;
+    }
 
-.section{
-padding:100px 20px;
-max-width:1200px;
-margin:auto;
-}
+    h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(3.3rem,7vw,7.8rem);
+      line-height:.9;
+      font-weight:600;
+      letter-spacing:-.04em;
+      max-width:780px;
+    }
 
-.section-title{
-font-family:'Playfair Display',serif;
-font-size:3rem;
-margin-bottom:20px;
-text-align:center;
-}
+    .lead{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:1.12rem;
+      max-width:610px;
+    }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-margin-top:50px;
-}
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:36px;
+    }
 
-.card{
-background:#121212;
-padding:40px;
-border-radius:24px;
-border:1px solid rgba(255,255,255,.08);
-transition:.3s;
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 24px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-weight:800;
+      transition:.22s ease;
+    }
 
-.card:hover{
-transform:translateY(-5px);
-border-color:rgba(255,255,255,.2);
-}
+    .btn.primary{
+      background:var(--ink);
+      color:#070707;
+      border-color:var(--ink);
+    }
 
-.card h2{
-font-family:'Playfair Display',serif;
-font-size:2rem;
-margin-bottom:20px;
-}
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(245,242,236,.35);
+    }
 
-.card p{
-opacity:.85;
-margin-bottom:20px;
-}
+    .portrait{
+      position:relative;
+      min-height:620px;
+      border-radius:34px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:var(--soft);
+      box-shadow:0 40px 110px rgba(0,0,0,.5);
+    }
 
-.card ul{
-padding-left:20px;
-}
+    .portrait img{
+      width:100%;
+      height:100%;
+      position:absolute;
+      inset:0;
+      object-fit:cover;
+      filter:grayscale(.12) contrast(1.03);
+    }
 
-.card li{
-margin-bottom:12px;
-opacity:.9;
-}
+    .portrait:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.5), transparent 54%);
+    }
 
-.price{
-font-size:2rem;
-font-weight:700;
-margin-top:25px;
-}
+    .portrait-label{
+      position:absolute;
+      left:28px;
+      bottom:28px;
+      z-index:2;
+      border:1px solid var(--line);
+      background:rgba(7,7,7,.58);
+      backdrop-filter:blur(10px);
+      border-radius:999px;
+      padding:12px 18px;
+      color:var(--muted);
+      font-size:.78rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
 
-.exp{
-background:#111;
-padding:100px 20px;
-}
+    section{
+      padding:90px 0;
+      border-top:1px solid var(--line);
+    }
 
-.exp-container{
-max-width:1000px;
-margin:auto;
-}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:40px;
+      align-items:end;
+      margin-bottom:36px;
+    }
 
-.exp h2{
-font-family:'Playfair Display',serif;
-font-size:3rem;
-margin-bottom:35px;
-text-align:center;
-}
+    .section-head h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.4rem,4.5vw,4.4rem);
+      line-height:.96;
+      font-weight:600;
+      letter-spacing:-.03em;
+      max-width:680px;
+    }
 
-.exp p{
-margin-bottom:20px;
-opacity:.88;
-font-size:1.05rem;
-}
+    .section-head p{
+      max-width:460px;
+      color:var(--muted);
+    }
 
-.social{
-padding:40px 20px;
-border-top:1px solid rgba(255,255,255,.08);
-text-align:center;
-}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
 
-.social p{
-opacity:.6;
-margin-bottom:15px;
-}
+    .card{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:34px;
+      min-height:430px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      position:relative;
+      overflow:hidden;
+    }
 
-.social-links{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:auto -20% -38% auto;
+      width:260px;
+      height:260px;
+      background:radial-gradient(circle, rgba(200,169,106,.13), transparent 68%);
+      pointer-events:none;
+    }
 
-.social-links a{
-color:#fff;
-text-decoration:none;
-opacity:.9;
-}
+    .card .tag{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.72rem;
+      font-weight:800;
+      margin-bottom:18px;
+    }
 
-.cta{
-padding:100px 20px;
-text-align:center;
-}
+    .card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.55rem;
+      line-height:1;
+      font-weight:600;
+      letter-spacing:-.025em;
+      margin-bottom:16px;
+    }
 
-@media(max-width:900px){
+    .card p{
+      color:var(--muted);
+      font-size:.98rem;
+      margin-bottom:20px;
+    }
 
-.hero-content{
-grid-template-columns:1fr;
-text-align:center;
-}
+    .card ul{
+      list-style:none;
+      display:grid;
+      gap:10px;
+      margin:20px 0 26px;
+    }
 
-h1{
-font-size:3rem;
-}
+    .card li{
+      color:#ded8cf;
+      font-size:.95rem;
+      padding-left:22px;
+      position:relative;
+    }
 
-.hero img{
-margin:auto;
-}
+    .card li:before{
+      content:"—";
+      position:absolute;
+      left:0;
+      color:var(--gold);
+    }
 
-.subtitle{
-margin:auto auto 35px auto;
-}
+    .price{
+      border-top:1px solid var(--line);
+      padding-top:20px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+      margin-top:auto;
+      position:relative;
+      z-index:2;
+    }
 
-}
+    .amount{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.25rem;
+      line-height:1;
+      color:var(--ink);
+      white-space:nowrap;
+    }
 
-</style>
+    .note{
+      color:var(--muted);
+      font-size:.82rem;
+      text-align:right;
+      max-width:220px;
+    }
+
+    .experience{
+      background:
+        radial-gradient(circle at 12% 0%, rgba(200,169,106,.12), transparent 28%),
+        linear-gradient(180deg, #0b0b0b, #070707);
+    }
+
+    .exp-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:50px;
+      align-items:start;
+    }
+
+    .exp-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .exp-item{
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:20px;
+      background:rgba(255,255,255,.025);
+    }
+
+    .exp-item strong{
+      display:block;
+      color:var(--ink);
+      margin-bottom:6px;
+    }
+
+    .exp-item span{
+      color:var(--muted);
+    }
+
+    .social{
+      padding:42px 0;
+      border-top:1px solid var(--line);
+      background:#090909;
+    }
+
+    .social-grid{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    .social-title{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.72rem;
+      font-weight:800;
+    }
+
+    .social-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .social-links a:hover{
+      color:var(--ink);
+    }
+
+    .final{
+      text-align:center;
+      padding:110px 0;
+      background:radial-gradient(circle at 50% 10%, rgba(200,169,106,.13), transparent 35%);
+    }
+
+    .final h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.7rem,6vw,5.8rem);
+      line-height:.95;
+      font-weight:600;
+      letter-spacing:-.04em;
+      max-width:920px;
+      margin:0 auto 24px;
+    }
+
+    .final p{
+      color:var(--muted);
+      max-width:620px;
+      margin:0 auto 34px;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:26px 0;
+      color:var(--muted);
+      font-size:.78rem;
+    }
+
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    @media(max-width:900px){
+      .navlinks{display:none}
+      .hero-grid,.exp-grid{grid-template-columns:1fr;gap:36px}
+      .portrait{min-height:520px;order:-1}
+      .cards{grid-template-columns:1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:18px}
+      .social-grid{display:grid;text-align:center;justify-content:center}
+      .social-links{justify-content:center}
+    }
+
+    @media(max-width:560px){
+      .hero{padding-top:96px}
+      .portrait{min-height:430px;border-radius:24px}
+      .card{padding:26px;min-height:auto;border-radius:24px}
+      .card h3{font-size:2.15rem}
+      .price{display:block}
+      .note{text-align:left;margin-top:8px}
+      .hero-actions{display:grid}
+      .btn{width:100%}
+      .portrait-label{left:18px;bottom:18px;font-size:.68rem}
+    }
+  </style>
 </head>
 
 <body>
 
-<section class="hero">
+  <header>
+    <div class="wrap nav">
+      <div class="brand">Agustín Balegno</div>
+      <nav class="navlinks">
+        <a href="#propuestas">Propuestas</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#redes">Redes</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="hero-content">
+  <main>
 
-<div>
+    <section class="hero">
+      <div class="wrap hero-grid">
 
-<h1>
-Hospitalidad, servicio y operación real.
-</h1>
+        <div>
+          <div class="eyebrow">Hospitalidad · Servicio · Barra</div>
 
-<p class="subtitle">
-Charlas, workshops y activaciones diseñadas para equipos gastronómicos, bares, restaurantes y operaciones de alto volumen.
-</p>
+          <h1>Productos flash para activar equipos y barras.</h1>
 
-<a href="#propuestas" class="button">
-Ver propuestas
-</a>
+          <p class="lead">
+            Charlas, capacitaciones y experiencias de barra pensadas para restaurantes, bares, antros, discotecas y equipos que necesitan ordenar su servicio, comunicar mejor y operar con más criterio.
+          </p>
 
-</div>
+          <div class="hero-actions">
+            <a class="btn primary" href="#propuestas">Ver propuestas</a>
+            <a class="btn" href="#contacto">Consultar disponibilidad</a>
+          </div>
+        </div>
 
-<div>
-<img src="Hero.png" alt="Agustín Balegno">
-</div>
+        <figure class="portrait">
+          <img src="Hero.png" alt="Agustín Balegno">
+          <div class="portrait-label">17 años de barra, formación y consultoría</div>
+        </figure>
 
-</div>
+      </div>
+    </section>
 
-</section>
+    <section id="propuestas">
+      <div class="wrap">
 
-<section class="section" id="propuestas">
+        <div class="section-head">
+          <h2>Elegí el formato según tu operación.</h2>
+          <p>
+            Cada propuesta se adapta al tipo de barra, volumen, equipo, carta y momento comercial del lugar.
+          </p>
+        </div>
 
-<h2 class="section-title">
-Selecciona según tu necesidad
-</h2>
+        <div class="cards">
 
-<div class="cards">
+          <article class="card">
+            <div>
+              <div class="tag">Bares y restaurantes</div>
+              <h3>Hospitalidad + Guest Bartending</h3>
+              <p>
+                Una intervención corta para elevar conversación, servicio y experiencia líquida en una jornada real de operación.
+              </p>
+              <ul>
+                <li>Charla de hospitalidad, servicio y comunicación.</li>
+                <li>Diseño de un menú de 3 cócteles.</li>
+                <li>Los cócteles pueden pensarse para el día o para la noche.</li>
+                <li>Ejecución de la propuesta en barra.</li>
+                <li>Adaptación del menú según concepto, insumos y operación.</li>
+                <li>Bonus sin costo: relevamiento observador de la operación de barra.</li>
+                <li>Se requiere permitir el ingreso de otras personas a la charla previa si fuera necesario.</li>
+              </ul>
+            </div>
+            <div class="price">
+              <div class="amount">$5.000 MXN</div>
+              <div class="note">Formato flash para bares, restaurantes y espacios gastronómicos.</div>
+            </div>
+          </article>
 
-<div class="card">
+          <article class="card">
+            <div>
+              <div class="tag">Antros · Discotecas · Alto volumen</div>
+              <h3>Barra de Alto Volumen</h3>
+              <p>
+                Para operaciones nocturnas donde la velocidad, el orden, la recepción y la comunicación interna definen la experiencia.
+              </p>
+              <ul>
+                <li>Taller de 1 hora para el equipo.</li>
+                <li>Diseño de 2 cócteles a modo de recepción.</li>
+                <li>Relevamiento observador de la operación de barra.</li>
+                <li>Lectura de flujo, tiempos, mise en place y puntos de fricción.</li>
+                <li>Feedback operativo posterior con oportunidades de mejora.</li>
+                <li>Adaptación según volumen, tipo de servicio y dinámica del lugar.</li>
+              </ul>
+            </div>
+            <div class="price">
+              <div class="amount">$6.000 MXN</div>
+              <div class="note">Antros, discotecas y barras de alto volumen.</div>
+            </div>
+          </article>
 
-<h2>
-Hospitalidad + Guest Bartending
-</h2>
+          <article class="card">
+            <div>
+              <div class="tag">Formación base para equipos</div>
+              <h3>ABC de los Cócteles</h3>
+              <p>
+                Un entrenamiento práctico para poner a punto la barra y fijar un set común de skills técnicos, operativos y de criterio.
+              </p>
+              <ul>
+                <li>3 horas de formación para el equipo.</li>
+                <li>Herramientas para ordenar procesos básicos de barra.</li>
+                <li>Set de skills para estandarizar técnica y lenguaje operativo.</li>
+                <li>Ideal para alinear equipos nuevos o reforzar equipos existentes.</li>
+                <li>No incluye bebidas ni insumos.</li>
+                <li>Bonus extra: charla sobre hospitalidad, servicio y comunicación.</li>
+              </ul>
+            </div>
+            <div class="price">
+              <div class="amount">$1.500 MXN</div>
+              <div class="note">Por persona. Mínimo 5 personas.</div>
+            </div>
+          </article>
 
-<p>
-Una experiencia diseñada para bares y restaurantes que buscan potenciar servicio, comunicación y experiencia del cliente.
-</p>
+          <article class="card">
+            <div>
+              <div class="tag">Diagnóstico breve</div>
+              <h3>Observador de Barra</h3>
+              <p>
+                Un complemento para mirar la operación sin intervenir y detectar puntos concretos de mejora en servicio real.
+              </p>
+              <ul>
+                <li>Observación de mise en place, roles y flujo.</li>
+                <li>Lectura de comunicación interna del equipo.</li>
+                <li>Detección de pérdidas de tiempo y fricción operativa.</li>
+                <li>Comentarios accionables para ordenar la barra.</li>
+                <li>Puede sumarse como bonus a las propuestas principales.</li>
+              </ul>
+            </div>
+            <div class="price">
+              <div class="amount">Bonus</div>
+              <div class="note">Disponible según formato contratado.</div>
+            </div>
+          </article>
 
-<ul>
-<li>Charla sobre hospitalidad, servicio y comunicación.</li>
-<li>Diseño de menú de 3 cócteles.</li>
-<li>Adaptación según concepto del venue.</li>
-<li>Ejecución real en barra.</li>
-<li>Interacción con clientes durante el servicio.</li>
-<li>Bonus: relevamiento observador de operación de barra.</li>
-<li>Posibilidad de sumar asistentes externos a la charla previa.</li>
-</ul>
+        </div>
+      </div>
+    </section>
 
-<div class="price">
-$5.000 MXN
-</div>
+    <section class="experience" id="experiencia">
+      <div class="wrap exp-grid">
 
-</div>
+        <div class="section-head" style="display:block;margin:0">
+          <div class="eyebrow">Experiencia</div>
+          <h2>17 años detrás, delante y al costado de la barra.</h2>
+          <p style="margin-top:22px">
+            La propuesta combina técnica, operación, comunicación, hospitalidad y experiencia real en servicio.
+          </p>
+        </div>
 
-<div class="card">
+        <div class="exp-list">
 
-<h2>
-Antros, Discotecas & Barras de Alto Volumen
-</h2>
+          <div class="exp-item">
+            <strong>Formación y dirección educativa</strong>
+            <span>Fundador de ABB Bartenders Academy, formando cientos de bartenders cada año desde 2010.</span>
+          </div>
 
-<p>
-Capacitación rápida y funcional orientada a velocidad, experiencia nocturna y operaciones de alto volumen.
-</p>
+          <div class="exp-item">
+            <strong>Operación de barra</strong>
+            <span>Head bartender de Brindisi Bar de Cócteles durante 8 años, head bartender en Zizo y experiencia en barras para eventos con Cocktail Inc.</span>
+          </div>
 
-<ul>
-<li>Taller intensivo de 1 hora para el equipo.</li>
-<li>Capacitación sobre flujo operativo y comunicación rápida.</li>
-<li>Diseño de 2 cócteles de recepción.</li>
-<li>Propuesta adaptable al estilo del venue.</li>
-<li>Relevamiento observador de la operación de barra.</li>
-<li>Feedback operativo posterior.</li>
-<li>Posibilidad de sumar asistentes externos.</li>
-</ul>
+          <div class="exp-item">
+            <strong>Conferencias y capacitación</strong>
+            <span>Speaker en Barra México 2021. Parte de Campari Academy Argentina brindando conferencias y seminarios.</span>
+          </div>
 
-<div class="price">
-$6.000 MXN
-</div>
+          <div class="exp-item">
+            <strong>Consultoría y diseño líquido</strong>
+            <span>Trabajo en Hotel W Costa Rica potenciando equipos. Cocktail designer para Holbox San Francisco, Tregua, Mazera, Óleo, Zizo y otros proyectos gastronómicos.</span>
+          </div>
 
-</div>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
+    <section class="social" id="redes">
+      <div class="wrap social-grid">
+        <div class="social-title">Redes & contacto</div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/agustinbalegnobartender" target="_blank">@agustinbalegnobartender</a>
+          <a href="https://www.instagram.com/abb_cocktail" target="_blank">@abb_cocktail</a>
+          <a href="https://www.agustinbalegnobartender.com" target="_blank">agustinbalegnobartender.com</a>
+        </div>
+      </div>
+    </section>
 
-<h2>
-ABC de los Cócteles
-</h2>
+    <section class="final" id="contacto">
+      <div class="wrap">
+        <h2>Una acción corta puede ordenar mucho más que una carta.</h2>
+        <p>
+          Seleccioná la propuesta que mejor encaje con tu equipo y la adaptamos al momento real de tu operación.
+        </p>
+        <a class="btn primary" href="https://wa.me/0000000000?text=Hola%20Agust%C3%ADn%2C%20quiero%20consultar%20por%20una%20propuesta%20flash%20para%20mi%20barra">
+          Consultar por WhatsApp
+        </a>
+      </div>
+    </section>
 
-<p>
-Programa pensado para poner a punto tu barra y fijar un set de skills claros para el equipo.
-</p>
+  </main>
 
-<ul>
-<li>3 horas de formación intensiva.</li>
-<li>Técnicas fundamentales de barra.</li>
-<li>Organización y lógica operativa.</li>
-<li>Herramientas de trabajo incluidas.</li>
-<li>No incluye bebidas ni insumos.</li>
-<li>Mínimo 5 personas.</li>
-<li>Bonus: charla sobre hospitalidad, servicio y comunicación.</li>
-</ul>
-
-<div class="price">
-$1.500 MXN p/persona
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="exp">
-
-<div class="exp-container">
-
-<h2>
-Experiencia
-</h2>
-
-<p>
-Agustín Balegno cuenta con más de 17 años de experiencia en la industria gastronómica y de coctelería.
-</p>
-
-<p>
-Head Bartender de Brindisi Bar de Cócteles durante 8 años. Fundador de Zizo Bar de Cócteles y director de ABB Bartenders Academy formando cientos de bartenders cada año desde 2010.
-</p>
-
-<p>
-Speaker en Barra México 2021 y parte de Campari Academy Argentina brindando conferencias y seminarios internacionales.
-</p>
-
-<p>
-Consultor y cocktail designer para diferentes proyectos gastronómicos en Latinoamérica incluyendo Hotel W Costa Rica, Holbox San Francisco, Tregua Restaurant, Mazera y Óleo.
-</p>
-
-</div>
-
-</section>
-
-<section class="social">
-
-<p>
-Redes & contacto
-</p>
-
-<div class="social-links">
-
-<a href="https://www.instagram.com/agustinbalegnobartender">
-@agustinbalegnobartender
-</a>
-
-<a href="https://www.instagram.com/abb_cocktail">
-@abb_cocktail
-</a>
-
-<a href="https://www.agustinbalegnobartender.com">
-www.agustinbalegnobartender.com
-</a>
-
-</div>
-
-</section>
-
-<section class="cta">
-
-<h2 class="section-title">
-¿Quieres llevar esto a tu equipo?
-</h2>
-
-<p class="subtitle" style="margin:auto;">
-Propuestas adaptables según operación, volumen y estilo del venue.
-</p>
-
-<a href="https://wa.me/0000000000" class="button">
-Contactar por WhatsApp
-</a>
-
-</section>
+  <footer>
+    <div class="wrap footer-grid">
+      <span>Agustín Balegno · Hospitality Sessions</span>
+      <span>Hospitalidad · Servicio · Barra · Formación</span>
+    </div>
+  </footer>
 
 </body>
 </html>
